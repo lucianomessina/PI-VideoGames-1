@@ -28,7 +28,7 @@ const getOneVideoGame= async(id)=>{
 const getDBvideogames = async ()=>{
   try {
     const DBinfo= await Videogame.findAll({
-      where: {},
+      
       include:{
         model:Genres,
         attributes: ["name"],
@@ -38,8 +38,8 @@ const getDBvideogames = async ()=>{
 
       }
     });
-
-    const dbGame=DBinfo.map(()=>{
+    console.log('la info es ', DBinfo);
+    const dbGame= await DBinfo.map((e)=>{
       return{
         id:e.id,
         name:e.name,
@@ -47,7 +47,7 @@ const getDBvideogames = async ()=>{
         platforms:e.platforms,
         description:e.description,
         background_image:e.background_image,
-        genres:e.genres.map(e=>e.name),
+        Genres:e.Genres.map(e=>e),
         released:e.released,
         createdVideoGame:e.createdVideoGame
       }
