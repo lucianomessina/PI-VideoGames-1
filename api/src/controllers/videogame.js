@@ -10,7 +10,7 @@ const {getApiVideoGames,
     getOneVideoGame}=require('./utils');
 
 
-const putVideoGame= async ()=>{
+const putVideoGame= async (req,res)=>{
     const {id}=req.params
     const{name,
         description,
@@ -31,7 +31,7 @@ const putVideoGame= async ()=>{
             background_image,
             platforms,
         })
-        return res.send('VideoGame updated succesfully!')
+        return res.send(changeVD)
         }else{
             res.send("couldn't find the game with the id provided.");
         }
