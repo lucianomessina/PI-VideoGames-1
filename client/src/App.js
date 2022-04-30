@@ -1,10 +1,17 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+import NavBar from './components/NavBar';
+import {AppRoutes} from './routes/AppRoutes';
+
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Henry Videogames</h1>
-    </div>
+  return (<>
+  <Router>
+  <NavBar/>
+  <AppRoutes/>
+
+  </Router>
+  </>
   );
 }
 
