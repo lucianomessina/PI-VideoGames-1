@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function VgCard({name,id,background_image,genres}) {
+  
   return (
       
+
   <div>
       {/* {console.log('hay: ',genres)} */}
       <Link to={'/home/'+id}>

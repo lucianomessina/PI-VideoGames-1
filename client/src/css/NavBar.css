@@ -1,6 +1,32 @@
 .Nav-Bar{
-display: inline-block;
-background: rgb(144, 134, 134);
+display: inherit;
+
+/* background: rgb(43, 34, 34); */
+background-color: #dddddd;
 color:black;
 padding: auto;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  li {
+    float: left;
+  }
+  li :hover:not(.active) {
+    background-color: #111;
+  }
+.nav-item{ 
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .active {
+    background-color: #04AA6D;
+    float: right;
+  }

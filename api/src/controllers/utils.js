@@ -14,7 +14,8 @@ const getOneVideoGame= async(id)=>{
       rating:g.data.rating,
       background_image:g.data.background_image,
       platforms:g.data.platforms,
-      createdVideoGame:false
+      createdVideoGame:false,
+      genres:g.data.genres
 
     }
     // console.log('el juego es: '+game)
@@ -75,7 +76,8 @@ const getApiVideoGames = async () => {
             rating: e.rating,
             genres: e.genres.map((gender) => gender.name),
             platforms: e.platforms.map((platform) => platform.platform.name),
-            genres:e.genres.map(e=>e.name)
+            genres:e.genres.map(e=>e.name),
+            description:e.description
           });
         });
         url = pages.data.next;

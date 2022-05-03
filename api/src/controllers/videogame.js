@@ -134,7 +134,7 @@ const getVideoGameById=async(req,res)=>{
            const videogame= dbVideogames.find(game=> game.id===id);
            videogame? 
            res.send(videogame):
-           res.status(404).send("Couldn't find the pokemon with the id: ",id )
+           res.status(404).send("Couldn't find the videogame with the id: ",id )
         }
     } catch (error) {
         console.log(error);
