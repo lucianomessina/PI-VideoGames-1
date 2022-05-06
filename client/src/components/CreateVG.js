@@ -21,10 +21,10 @@ function validate(state){
   }else if(state.rating<0 || state.rating >5){
     error.rating='The rating has to be a value beetwen 0 and 5'
   }
-  if(state.genres.length==0){
+  if(state.genres.length===0){
     error.genres='Should have at least 1 genre'
   }
-  if(state.platforms.length==0){
+  if(state.platforms.length===0){
     error.platforms='Should select at least 1 platform'
 
   }
@@ -53,7 +53,7 @@ export default function CreateVG() {
     name:'',
     description:'',
     rating:'',
-    genres:''
+    genres:'',
   })
 useEffect(()=>{
   dispatch(getGenres())
@@ -169,7 +169,7 @@ const handleSubmit=(e)=>{
           <label>Released: </label>
           <input
           onChange={e=>handleChange(e)}
-          type='datetime'
+          type='date'
           value={input.released}
           name='released'
           />
@@ -242,7 +242,9 @@ const handleSubmit=(e)=>{
                 </div>)
               })}
             </div>
-  <button type='submit' className='submit' disabled={!button}>Create Videogame</button>
+            <div className='submit1'>
+             <button type='submit' className='submit' disabled={!button}>Create Videogame</button>
+            </div>
         </div>
       </div>
   )

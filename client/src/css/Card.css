@@ -9,13 +9,17 @@
  position: relative;
  padding: 1em 2em;
  border: 0;
- background: rgb(5, 5, 22);
+ background:transparent;
  font-size: 18px;
  font-weight: 500;
  color: #fff;
  z-index: 2;
  border-radius: 15px;
+ /* opacity: 90%; */
+ 
 }
+
+
 
 .card::after {
  --m-i: linear-gradient(#000, #000);

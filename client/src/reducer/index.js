@@ -83,7 +83,7 @@ export default function rootReducer(state=initialState,action){
             }
             case 'order_asc_desc':{
                 const allvg=state.videogamescopy
-                var orderedVg=allvg.sort(function(a,b){
+                var orderedVg1=allvg.sort(function(a,b){
                     if(a.name >b.name){
                         return 1;
                     }
@@ -92,8 +92,8 @@ export default function rootReducer(state=initialState,action){
                     }
                     return 0
                 })
-                console.log(orderedVg)
-                orderedVg=action.payload==='asc'?orderedVg: orderedVg.reverse()
+                console.log(orderedVg1)
+                orderedVg1=action.payload==='asc'?orderedVg1: orderedVg1.reverse()
                 return{
                     ...state,
                     videogames:orderedVg

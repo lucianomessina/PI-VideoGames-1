@@ -12,9 +12,9 @@ function Home() {
   const allVideoGames= useSelector((state)=>state.videogames);
   const genres=useSelector((state)=>state.genres)
   const [loading,setLoading]=useState(false)
-  const [order,setOrder]=useState('')
+  const [,setOrder]=useState('')
   const [curretnPage,setCurrentPage]=useState(1)
-  const [vgPerPage,setVgPerPage]=useState(15)
+  const [vgPerPage,]=useState(15)
   const indexOfLastVg=curretnPage*vgPerPage
   const indexOf1vg=indexOfLastVg-vgPerPage
   const curretnVg=allVideoGames.slice(indexOf1vg,indexOfLastVg)
@@ -63,7 +63,7 @@ function Home() {
 
   }
 
-  return (<div  className='fondo'>
+  return (<div  className='fondo-home'>
     <div>
     <h2 className='flexbox'>Videogames individual proyect</h2>
     <Link to='/create'>Crear Videojuego</Link>
@@ -128,10 +128,10 @@ function Home() {
           rating={el.rating}
           description={el.description}
           />)
-        })):(
-          <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif'/>
+        })) :(
+          <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif' alt='https://wall.alphacoders.com/big.php?i=5185&lang=Spanish'/>
         )):
-        <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif'/>
+        <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif' alt='https://wall.alphacoders.com/big.php?i=5185&lang=Spanish'/>
 
       }
       </div>
@@ -141,6 +141,7 @@ function Home() {
        vgPerPage={vgPerPage}
        allVideogames={allVideoGames.length}
        paginado={paginado}
+       curretnPage={curretnPage}
        />}
   </div>
   )

@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit';
+
 import thunk from 'redux-thunk';
 import reducer from '../reducer/index';
 import { composeWithDevTools } from 'redux-devtools-extension';

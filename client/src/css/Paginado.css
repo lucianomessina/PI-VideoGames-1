@@ -1,11 +1,13 @@
 .Paginado {
-    margin-bottom: 5%;
-    display: inline-flex;
-    height: 1em;
-    flex-wrap: wrap;
-    align-content: space-between;
-    flex-direction: row;
-  }
+  margin-bottom: 5%;
+  display: inline-flex;
+  height: 1em;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex-direction: row;
+  float:none ;
+}
+
   
   .BotonPaginado {
     font-size: 16px;

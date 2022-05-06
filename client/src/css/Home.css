@@ -4,26 +4,53 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/* .fondo-home {
+  background: url("../fondoficial.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-attachment:fixed;
+  position: absolute;
+} */
+.fondo-home{
+  background: url('../fondoficial.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  min-height: 100%;
+  min-width: 1024px;
+  
+  width: 100%;
+  height: auto;
+  background-attachment:fixed;
+  
+  
+  position: absolute;
+  top: 10;
+  left: 0;
+  
+  
+  
+}
+
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
-  padding: 40px 0;
+  padding: 40px 40px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 30px;
 }
 
-  .fondo {
-    background-image: url("../fondoficial.jpg");
-    background-repeat: repeat-y;
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
-    background-attachment:fixed;
-  }
+
+
+
+
 
   .searchbar {
     border: solid transparent;
