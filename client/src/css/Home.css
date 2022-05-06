@@ -1,11 +1,36 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 0;
-  
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+  .fondo {
+    background-image: url("../fondoficial.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    background-attachment:fixed;
   }
 
+  .searchbar {
+    border: solid transparent;
+    border-radius: 3px;
+    padding: 0.5em;
+    background: rgb(24, 47, 75) 25%;
+    color: white;
+    margin-right: 0.5em;
+    width: 20vw;
+  }

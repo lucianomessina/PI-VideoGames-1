@@ -19,12 +19,12 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     released: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     rating: {
       type: DataTypes.FLOAT ,
-      allowNull: true,
+      allowNull: false,
     },
     background_image: {
       type: DataTypes.STRING,

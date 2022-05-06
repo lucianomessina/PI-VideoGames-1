@@ -1,9 +1,69 @@
 .fondo {
-    background-image: url("../5538369.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
-    background-attachment: fixed;
-  }
+  background-image: url("../fondoficial.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  /* position: absolute; */
+  height: 400px ;
+
+}
+h2{
+  font-size: 42px;
+font-family: monospace;
+color: aliceblue;
+
+}
+.alig{
+  /* text-align: justify; */
+  margin-bottom: 100px;
+}
+.boton {
+  width: 140px;
+  height: 50px;
+  font-size: 23px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: rgb(204, 179, 179);
+  font-family: monospace;
+  font-weight: 700;
+  position: absolute;
+  transition: all 0.5s;
+  z-index: 1;
+ }
+ 
+ .boton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: rgb(124, 31, 31);
+  z-index: -1;
+  transition: all 0.5s;
+ }
+ 
+ .boton:hover::before {
+  width: 100%;
+ }
+ 
+ button:hover {
+  color: rgb(143, 134, 134);
+ }
+ 
+ button:active:before {
+  background: #4ea0a3;
+ }

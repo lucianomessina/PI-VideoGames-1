@@ -39,7 +39,7 @@ const getDBvideogames = async ()=>{
 
       }
     });
-    console.log('la info es ', DBinfo);
+    // console.log('la info es ', DBinfo);
     const dbGame= await DBinfo.map((e)=>{
       return{
         id:e.id,
@@ -48,7 +48,7 @@ const getDBvideogames = async ()=>{
         platforms:e.platforms,
         description:e.description,
         background_image:e.background_image,
-        Genres:e.Genres.map(e=>e),
+        Genres:e.genres.map(e=>e),
         released:e.released,
         createdVideoGame:e.createdVideoGame
       }
@@ -77,7 +77,8 @@ const getApiVideoGames = async () => {
             genres: e.genres.map((gender) => gender.name),
             platforms: e.platforms.map((platform) => platform.platform.name),
             genres:e.genres.map(e=>e.name),
-            description:e.description
+            description:e.description,
+            createdVideoGame:false
           });
         });
         url = pages.data.next;

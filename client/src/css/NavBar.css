@@ -1,32 +1,35 @@
 .Nav-Bar{
+  font-family: monospace;
 display: inherit;
-
+font-size: 20px;
 /* background: rgb(43, 34, 34); */
-background-color: #dddddd;
-color:black;
+background-color: #7a5454;
+color:rgb(83, 20, 20);
 padding: auto;
+border-color: #751717;
 }
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(82, 12, 12);
   }
   li {
     float: left;
   }
   li :hover:not(.active) {
-    background-color: #111;
+    background-color: rgb(126, 0, 0);
+   
   }
 .nav-item{ 
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 18px 19px;
     text-decoration: none;
   }
   .active {
-    background-color: #04AA6D;
+    background-color: #000000;
     float: right;
   }

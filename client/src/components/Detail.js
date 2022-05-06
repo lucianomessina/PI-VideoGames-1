@@ -29,8 +29,10 @@ function Detail() {
     genres,
     background_image,
     rating,released,
-    platforms}=videogame
-  console.log(genres)
+    platforms,
+  createdVideoGame,
+description}=videogame
+  console.log(description)
   return (<div>
 
     <h2>{name}</h2>
@@ -41,11 +43,22 @@ function Detail() {
     <p>Rating: {rating}</p>
     <p>Released: {released}</p>
     <p>Plataformas:</p>
-    {platforms && platforms.map(p=>{
+    {createdVideoGame? platforms.map(e=>{
+      return(<li key={platforms.indexOf(e)}>{e}</li>
+
+      )
+    }) :platforms && platforms.map(p=>{
       return(
         <li key={p.platform.id}>{p.platform.name}</li>
       )
     })}
+    <div>
+    <br/>
+      <p
+              className="Descripcion-Detalle"
+              dangerouslySetInnerHTML={{ __html:description }}
+            />
+      </div>
     
   
   </div>

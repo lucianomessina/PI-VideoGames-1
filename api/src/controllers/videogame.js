@@ -97,16 +97,21 @@ const postVideoGame=async(req,res)=>{
     //Busca todos o uno si se le pasa un query
 const getVideoGame=async(req,res)=>{
     try { 
-        console.log('entro')
+        
         const {name}=req.query;
         var game
         const all=await getAllVideoGames()
         if(name){
-           game= all.find(e=>e.name==name)
-            game?
+            console.log('buscando por nombre')
+           game=all
+           .filter((e) => e.name.toLowerCase().includes(name.toLowerCase()))
+           .slice(0, 16);
+           console.log(game)
+            game.length?
              res.send(game):
             res.status(404).send('Game not found');
         }else{
+            console.log('buscando todos')
             res.send(all)
         }
         

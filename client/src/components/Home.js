@@ -1,16 +1,18 @@
 import React, { useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import {getVideoGames, getGenres,filterByGenre} from'../actions/index';
+import {getVideoGames, getGenres,filterByGenre,filterByCreated,orderAscDesc,orderRating} from'../actions/index';
 import VgCard from './VgCard';
 import Paginado from './Paginado';
 import '../css/Home.css'
+import SearchBar from './SearchBar';
 
 function Home() {
   const dispatch=useDispatch()
   const allVideoGames= useSelector((state)=>state.videogames);
   const genres=useSelector((state)=>state.genres)
-  
+  const [loading,setLoading]=useState(false)
+  const [order,setOrder]=useState('')
   const [curretnPage,setCurrentPage]=useState(1)
   const [vgPerPage,setVgPerPage]=useState(15)
   const indexOfLastVg=curretnPage*vgPerPage
@@ -23,6 +25,7 @@ function Home() {
   }
   useEffect(()=>{
    dispatch(getVideoGames());
+   setLoading(true)
   },[dispatch])
   console.log(allVideoGames[0])
   // const {name, id}=allVideoGames[0]
@@ -32,31 +35,52 @@ function Home() {
     dispatch(getGenres());
   },[dispatch])
 
+  function handleFilterByCreated(e){
+    e.preventDefault()
+    dispatch(filterByCreated(e.target.value))
+    setCurrentPage(1)
+
+  }
+
   function handleFilterByGenre(e){
     e.preventDefault()
     dispatch(filterByGenre(e.target.value))
     setCurrentPage(1)
   }
 
+  function handleOrderAscDesc(e){
+    e.preventDefault()
+    dispatch(orderAscDesc(e.target.value))
+    setCurrentPage(1)
+    setOrder(e.target.value)
+
+  }
+  function handleOrderRating(e){
+    e.preventDefault()
+    dispatch(orderRating(e.target.value))
+    setCurrentPage(1)
+    setOrder(e.target.value)
+
+  }
+
   return (<div  className='fondo'>
-    <h2>Videogames individual proyect</h2>
+    <div>
+    <h2 className='flexbox'>Videogames individual proyect</h2>
     <Link to='/create'>Crear Videojuego</Link>
     <div>
-      <input
-      type='text'
-      id='title'
-      
-      />
+      <SearchBar/>
     </div>
     <div>
-      <select>
+      <select onChange={e=>handleOrderAscDesc(e)}>
+        <option value='none'>None</option>
         <option value='asc'>A-Z</option>
         <option value='desc'>Z-A</option>
       </select>
     </div>
     <div>
         <h3>Rating:</h3>
-      <select>
+      <select onChange={e=>handleOrderRating(e)}>
+      <option hidden={true} value='all'>all</option>
         <option value='may'>Best</option>
         <option value='men'>Worst</option>
       </select>
@@ -64,7 +88,7 @@ function Home() {
      <div>
         <h3>Filter By:</h3>
         <h4>Created/Existing:</h4>
-      <select>
+      <select onChange={e=>handleFilterByCreated(e)}>
         <option value='all'>All</option>
         <option value='Created'>Created</option>
         <option value='Existing'>Existing</option>
@@ -92,9 +116,9 @@ function Home() {
        paginado={paginado}
        />}
        <div className='container'>
-
-    {
-      curretnVg?.map((el)=>{
+    {loading?(
+      curretnVg.length>0?(
+      curretnVg.map((el)=>{
         return( <VgCard
           id={el.id}
           key={el.id}
@@ -102,13 +126,22 @@ function Home() {
           background_image={el.background_image}
           genres={el.genres}
           rating={el.rating}
+          description={el.description}
           />)
-        })
+        })):(
+          <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif'/>
+        )):
+        <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif'/>
+
       }
       </div>
+      </div>
     </div>  
-
-
+    {<Paginado 
+       vgPerPage={vgPerPage}
+       allVideogames={allVideoGames.length}
+       paginado={paginado}
+       />}
   </div>
   )
 }
