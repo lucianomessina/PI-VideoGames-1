@@ -47,7 +47,7 @@ export default function rootReducer(state=initialState,action){
             }
             case 'filter_by_genre':{
                     const allvg=state.videogamescopy
-                    const filteredVg=action.payload==='All'? allvg: allvg.filter(game=>game.genres.includes(action.payload))
+                    const filteredVg=action.payload==='All'? allvg: allvg.filter(game=>game.genres?.includes(action.payload))
                     return{
                         ...state,
                         videogames:filteredVg
@@ -96,7 +96,7 @@ export default function rootReducer(state=initialState,action){
                 orderedVg1=action.payload==='asc'?orderedVg1: orderedVg1.reverse()
                 return{
                     ...state,
-                    videogames:orderedVg
+                    videogames:orderedVg1
                 }
             }
             default: return state;

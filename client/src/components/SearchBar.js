@@ -23,12 +23,14 @@ export default function SearchBar() {
         <input
         className="searchbar"
         type='text'
+        name='name'
+        value={name}
         placeholder='Search Videogame...'
         onChange={e=>handleInputChange(e)}
         />
 
-        </div>
         <button type='submit' className="button" onClick={e=>handleSubmit(e)}>Search</button>
+        </div>
     </form>
   )
 }

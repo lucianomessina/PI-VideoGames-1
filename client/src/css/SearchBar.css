@@ -3,7 +3,7 @@
     border-radius: 3px;
     padding: 0.5em;
     background: rgb(221, 217, 217) 25%;
-    color: white;
+    color: rgb(0, 0, 0);
     margin-right: 0.5em;
     width: 20vw;
   }
@@ -17,6 +17,6 @@
     transition: .3s;
   }
   .button:hover {
-    background: rgb(34, 62, 95) 25%;
-    box-shadow: 5px 5px 5px 1px #4c334d;
+    background: rgb(137, 22, 22) 25%;
+    box-shadow: 5px 5px 5px 1px #6f686f;
   }

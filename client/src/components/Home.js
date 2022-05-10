@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { Link } from 'react-router-dom';
 import {getVideoGames, getGenres,filterByGenre,filterByCreated,orderAscDesc,orderRating} from'../actions/index';
 import VgCard from './VgCard';
 import Paginado from './Paginado';
@@ -12,9 +11,9 @@ function Home() {
   const allVideoGames= useSelector((state)=>state.videogames);
   const genres=useSelector((state)=>state.genres)
   const [loading,setLoading]=useState(false)
-  const [,setOrder]=useState('')
+  const [order,setOrder]=useState('')
   const [curretnPage,setCurrentPage]=useState(1)
-  const [vgPerPage,]=useState(15)
+  const [vgPerPage,/*setVgperpage*/]=useState(15)
   const indexOfLastVg=curretnPage*vgPerPage
   const indexOf1vg=indexOfLastVg-vgPerPage
   const curretnVg=allVideoGames.slice(indexOf1vg,indexOfLastVg)
@@ -65,19 +64,24 @@ function Home() {
 
   return (<div  className='fondo-home'>
     <div>
+    <div className='contenedor-filtro'>
     <h2 className='flexbox'>Videogames individual proyect</h2>
-    <Link to='/create'>Crear Videojuego</Link>
-    <div>
+    </div>
+    <div className='contenedor-filtro'>
       <SearchBar/>
     </div>
-    <div>
+
+    <div className='contenedor-filtro'>
+
+    <div className="Selector">
+    <h3>Order:</h3>
       <select onChange={e=>handleOrderAscDesc(e)}>
-        <option value='none'>None</option>
+        <option hidden={true} value='none'>None</option>
         <option value='asc'>A-Z</option>
         <option value='desc'>Z-A</option>
       </select>
     </div>
-    <div>
+    <div className="Selector">
         <h3>Rating:</h3>
       <select onChange={e=>handleOrderRating(e)}>
       <option hidden={true} value='all'>all</option>
@@ -85,8 +89,8 @@ function Home() {
         <option value='men'>Worst</option>
       </select>
      </div> 
-     <div>
-        <h3>Filter By:</h3>
+     <div className="Selector">
+        
         <h4>Created/Existing:</h4>
       <select onChange={e=>handleFilterByCreated(e)}>
         <option value='all'>All</option>
@@ -94,7 +98,7 @@ function Home() {
         <option value='Existing'>Existing</option>
       </select>
      </div>
-     <div>
+     <div className="Selector" >
        <h4>Genre:</h4>
           <select onChange={e=>handleFilterByGenre(e)}>
             <option value="todos">
@@ -109,12 +113,16 @@ function Home() {
             })}
           </select>
         </div> 
+       </div>
      <div>
+       <div className='contenedor-filtro'>
        {<Paginado 
        vgPerPage={vgPerPage}
        allVideogames={allVideoGames.length}
        paginado={paginado}
        />}
+
+       </div>
        <div className='container'>
     {loading?(
       curretnVg.length>0?(
@@ -129,20 +137,23 @@ function Home() {
           description={el.description}
           />)
         })) :(
-          <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif' alt='https://wall.alphacoders.com/big.php?i=5185&lang=Spanish'/>
+          <img className='loading' src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif' alt='client\src\fondo-create.jpg'/>
         )):
-        <img src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif' alt='https://wall.alphacoders.com/big.php?i=5185&lang=Spanish'/>
+        <img className='loading' src='https://blog.lootcrate.com/wp-content/uploads/2018/02/pacman_ghosts_header.gif' alt='client\src\fondo-create.jpg'/>
 
       }
       </div>
       </div>
     </div>  
+    <div className='contenedor-filtro'>
+
     {<Paginado 
        vgPerPage={vgPerPage}
        allVideogames={allVideoGames.length}
        paginado={paginado}
        curretnPage={curretnPage}
        />}
+    </div>
   </div>
   )
 }

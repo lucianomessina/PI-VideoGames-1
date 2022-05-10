@@ -61,3 +61,38 @@
     margin-right: 0.5em;
     width: 20vw;
   }
+  .loading{
+    margin-top: 50%;
+    height: 400px;
+    width: 400px;
+    animation-name: pacman;
+    position: relative;
+    animation-duration: 20s;
+    animation-timing-function: ease;
+    align-items: center;
+  }
+  .contenedor-filtro {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0.5em;
+    margin-bottom: 1em;
+    cursor: pointer;
+    font-family: monospace;
+  }
+  .Selector {
+    padding: 5px;
+    border: solid transparent 1px;
+    border-radius: 5px;
+    /* background: #053c5e; */
+    color: white;
+    cursor: pointer;
+  }
+  .paginado-1   {
+    justify-content: center;
+    align-items: center;
+  }
+  .paginated{
+    text-align: center;
+    margin: -50px;
+}

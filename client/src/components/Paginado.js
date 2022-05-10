@@ -6,7 +6,7 @@ export  default function Paginado({vgPerPage,allVideogames,paginado,curretnPage}
     for(let i=1;i<=Math.ceil(allVideogames/vgPerPage);i++){
         pageNumbers.push(i)
     }
-    console.log(curretnPage)
+    // console.log(curretnPage)
 
     return(
         <nav>
@@ -14,10 +14,10 @@ export  default function Paginado({vgPerPage,allVideogames,paginado,curretnPage}
                 {/* <li><a className="BotonPaginado" onClick={()=>paginado(curretnPage-1)}></a></li> */}
                 {pageNumbers && pageNumbers.map(p=>{
                    return( <li  className="Paginado" key={p}>
-                    <a  className="BotonPaginado" onClick={()=>paginado(p)}>{p}</a>
+                    <button  className="BotonPaginado" onClick={()=>paginado(p)}>{p}</button>
                     </li>)
                 })}
-                <li><a className="BotonPaginado" onClick={()=>paginado(curretnPage+1)}></a></li>
+                {/* <li key={next}><a className="BotonPaginado" onClick={()=>paginado(curretnPage+1)}></a></li> */}
 
             </ul>
 

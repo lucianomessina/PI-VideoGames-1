@@ -8,15 +8,15 @@ export default function VgCard({name,id,background_image,genres}) {
       
     
     <Link to={'/home/'+id}>
-  <div className='card'>
+  <div key={id} className='card'>
       {/* {console.log('hay: ',genres)} */}
           <div className='vgname'>
 
-            <img className='imagen-card' alt={'https://www.google.com/search?q=doge&tbm=isch&ved=2ahUKEwjcpK3QxLr3AhUYFLkGHamDCzgQ2-cCegQIABAA#imgrc=OsiH2eGR--imaM'} width='420px' height='250px'src={background_image}/>
+            <img className='imagen-card' alt={'client\src\fondo-create.jpg'} width='420px' height='250px'src={background_image ||'https://blog.ida.cl/wp-content/uploads/sites/5/2020/05/ida-uxvideojuegos-blog-768x551.png'}/>
             <h3>{name}</h3>
             {/* <h4>{genres}</h4> */}
             {genres?.map((e)=>{
-            return(<> <li key={genres.indexOf(e)+name}> {e} </li><br/></>)
+            return(<> <li key={genres.indexOf(e)+name}> {e} </li></>)
             })}
             </div>
 

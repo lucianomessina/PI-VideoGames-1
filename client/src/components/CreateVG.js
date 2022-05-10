@@ -38,7 +38,7 @@ export default function CreateVG() {
   let plataformss = [
     "PC","PlayStation","Xbox","Nintendo Switch","iOS", "Android","Nintendo","PS Vita","PSP","Wii","Game Boy","Atari","SEGA","PS5","PS4","PS3","PS2","PS1",
   ];
-  const [button,setButton]=useState(false)
+  const [button,setButton]=useState(true)
   const dispatch=useDispatch()
   const genres=useSelector(state=>state.genres)
   const [input,setInput]=useState({
@@ -72,7 +72,7 @@ const handleChange=(e)=>{
   return newState
   })
   if(Object.keys(error).length === 0){
-  setButton(true)}
+  setButton(false)}
 }
 const handleSelectP=(e)=>{
   e.preventDefault()
@@ -218,9 +218,12 @@ const handleSubmit=(e)=>{
 
           </div>
 
+            <div className='submit1'>
+             <button type='submit' disabled={button} className='submit' >Create Videogame</button>
+            </div>
           
       </form>
-            <div>
+            <div className='boxes'>
           <br/>
               <span>Genres selected:</span>
                 {input.genres.map(g=>{
@@ -231,19 +234,16 @@ const handleSubmit=(e)=>{
                 })}
             </div>
             <br/>
-            <div>
+            <div className='boxes-1'>
               <span>Platforms selected:</span>
 
               {input.platforms.map(p=>{
                 return (<div key={p}>
                   <p key={p}>{p}</p>
                 <button onClick={()=>handleDeletePlat(p)}>x</button>
-                <hr size='2px'/>
+                
                 </div>)
               })}
-            </div>
-            <div className='submit1'>
-             <button type='submit' className='submit' disabled={!button}>Create Videogame</button>
             </div>
         </div>
       </div>

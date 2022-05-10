@@ -34,12 +34,12 @@
  border-radius: var(--border-radius);
  background-image: conic-gradient(
 		#2e79f1,
-		#1ecaae,
-		#abbd08,
+		#0cacf1,
+		#9dae00,
 		#ce7d03,
-		#dd2590,
-		#4133db,
-		#2876f3
+		#ec1870,
+		#2918e1,
+		#1366ea
 	);
  -webkit-mask-image: var(--m-i), var(--m-i);
  mask-image: var(--m-i), var(--m-i);
@@ -70,4 +70,10 @@
 
 .card:active {
  --border-width: 5px;
+}
+.vgname{
+	font-family: monospace;
+	color:aliceblue;
+	font-style: italic;
+	text-decoration:unset
 }

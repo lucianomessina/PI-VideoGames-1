@@ -3,9 +3,8 @@
   display: inline-flex;
   height: 1em;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: space-between;
   flex-direction: row;
-  float:none ;
 }
 
   
