@@ -62,8 +62,8 @@ const postVideoGame=async(req,res)=>{
     if(rating<0 || rating>5) return res.status(400).send("the rating has to be beetwen 0 and 5");
 
     
-        if(!name || !description || !platforms){
-          return  res.status(404).send('Missing data');
+    if(!name || !description || !platforms){
+        return  res.status(404).send('Missing data');
 
     }else{
         const videogame= await Videogame.create({
@@ -94,7 +94,7 @@ const postVideoGame=async(req,res)=>{
 
 
 
-    //Busca todos o uno si se le pasa un query
+    //Busca todos o los primero 15 si se le pasa un query
 const getVideoGame=async(req,res)=>{
     try { 
         

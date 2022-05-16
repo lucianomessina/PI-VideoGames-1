@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getVideoGames, getGenres,filterByGenre,filterByCreated,orderAscDesc,orderRating} from'../actions/index';
+import {getVideoGames, getGenres,filterByGenre,filterByCreated,orderAscDesc,orderRating, rating4} from'../actions/index';
 import VgCard from './VgCard';
 import Paginado from './Paginado';
 import '../css/Home.css'
@@ -26,7 +26,7 @@ function Home() {
    dispatch(getVideoGames());
    setLoading(true)
   },[dispatch])
-  console.log(allVideoGames[0])
+ 
   // const {name, id}=allVideoGames[0]
   // console.log(name, id)
 
@@ -41,6 +41,17 @@ function Home() {
 
   }
 
+  function ratingg(){
+    
+    dispatch(rating4())
+  }
+
+
+
+
+  const handleReload = () => {
+    window.location.reload();
+  };
   function handleFilterByGenre(e){
     e.preventDefault()
     dispatch(filterByGenre(e.target.value))
@@ -68,7 +79,10 @@ function Home() {
     <h2 className='flexbox'>Videogames individual proyect</h2>
     </div>
     <div className='contenedor-filtro'>
+      <button className='button' onClick={()=>handleReload()}>Refresh</button>
       <SearchBar/>
+      {/* <button className='button' onClick={()=>ratingg()}>rating</button> */}
+
     </div>
 
     <div className='contenedor-filtro'>

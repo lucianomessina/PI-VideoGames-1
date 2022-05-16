@@ -10,6 +10,10 @@ const initialState= {
 }
 export default function rootReducer(state=initialState,action){
     switch (action.type){
+            case 'delete_videogame':{
+                return{
+                    ...state}
+            }
             case 'post_videogame':{
                 return{
                     ...state}
@@ -45,6 +49,12 @@ export default function rootReducer(state=initialState,action){
                     videogame:{}
                 }
             }
+            case 'clear_vg':{
+                return{
+                    ...state,
+                    videogames:[]
+                }
+            }
             case 'filter_by_genre':{
                     const allvg=state.videogamescopy
                     const filteredVg=action.payload==='All'? allvg: allvg.filter(game=>game.genres?.includes(action.payload))
@@ -56,7 +66,7 @@ export default function rootReducer(state=initialState,action){
             case 'filter_by_created':{
                 const allvg=state.videogamescopy
                 const filteredVg=action.payload==='Created'?allvg.filter(v=>v.createdVideoGame):allvg.filter(v=>!v.createdVideoGame)
-                console.log(filteredVg)
+                // console.log(filteredVg)
                 return{
                     ...state,
                     videogames:action.payload==='All'?allvg:filteredVg
@@ -74,7 +84,7 @@ export default function rootReducer(state=initialState,action){
                     return 0
                 })
                 orderedVg=action.payload==='men'?orderedVg:orderedVg.reverse()
-                console.log(orderedVg)
+                // console.log(orderedVg)
                 return{
                     ...state,
                     videogames:orderedVg
@@ -83,6 +93,7 @@ export default function rootReducer(state=initialState,action){
             }
             case 'order_asc_desc':{
                 const allvg=state.videogamescopy
+                console.log(allvg)
                 var orderedVg1=allvg.sort(function(a,b){
                     if(a.name >b.name){
                         return 1;
@@ -97,6 +108,14 @@ export default function rootReducer(state=initialState,action){
                 return{
                     ...state,
                     videogames:orderedVg1
+                }
+            }
+            case 'rating4':{
+                const allvg=state.videogamescopy;
+                const filteredVg=allvg.filter(v=>v.rating>=4)
+                return{
+                    ...state,
+                    videogames:filteredVg
                 }
             }
             default: return state;

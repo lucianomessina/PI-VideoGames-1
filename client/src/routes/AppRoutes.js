@@ -10,7 +10,6 @@ import NotFound from "../components/notFound";
     export  const AppRoutes=()=>{
   return (
   <>
-  {/* <Router> */}
     <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route exact path='/Home' element={<Home/>}/>
@@ -18,10 +17,7 @@ import NotFound from "../components/notFound";
         <Route path='/create' element={<CreateVG/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='*' element={<NotFound/>}/>
-        {/* <Route path='/' element={</>}/> */}
-
     </Routes>
-  {/* </Router> */}
  </>  
     )
 }

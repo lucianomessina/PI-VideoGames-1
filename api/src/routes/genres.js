@@ -3,7 +3,7 @@ const{getGenre}=require('../controllers/genre');
 const genresRouter= express.Router()
 
 
-// genderRouter.get('/genres',getGenres)
+
 
 genresRouter.get("/", getGenre);
 

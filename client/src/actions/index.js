@@ -6,12 +6,24 @@ export const  GET_GENRES='get_genres';
 export const  GET_BY_ID='get_by_id';
 export const  GET_BY_NAME='get_by_name';
 export const CLEAR_STATE='clear_state';
+export const CLEAR_VG='clear_vg';
 export const FILTER_BY_GENRE='filter_by_genre'
 export const FILTER_BY_CREATED='filter_by_created';
 export const ORDER_ASC_DESC='order_asc_desc';
 export const ORDER_BY_RATING='order_by_rating';
 export const POST_VIDEOGAME='post_videogame';
+export const DELETE_VIDEOGAME='delete_videogame';
+export const RATING4='rating4';
  
+
+export function rating4(payload){
+    return{
+        type:RATING4,
+        payload
+    }
+
+}
+
 
 export function orderRating(payload){
     return{
@@ -24,10 +36,21 @@ export function orderRating(payload){
 export function postVideoGame(payload){
     return async ()=>{
         const json= await axios.post('http://localhost:3001/videogames',payload)
-        console.log(json.data) 
+        // console.log(json.data) 
         return {
             json
         }
+
+    }
+
+}
+export function DeleteVideoGame(payload){
+    return async (dispatch)=>{
+        const json= await axios.delete('http://localhost:3001/videogames/'+payload)
+        console.log(json.data) 
+        return dispatch({
+            type:DELETE_VIDEOGAME
+        })
 
     }
 
@@ -38,7 +61,7 @@ export function postVideoGame(payload){
      return async(dispatch)=>{
          try {
              const json=await axios.get('http://localhost:3001/videogames?name='+name)
-             console.log(json.data)
+            //  console.log(json.data)
              return dispatch({
                  type:'get_by_name',
                  payload:json.data
@@ -74,6 +97,12 @@ export function filterByGenre(payload){
 }
 
 export function clearState(){
+    return {
+        type:CLEAR_STATE
+       
+    }
+}
+export function clearVg(){
     return {
         type:CLEAR_STATE
        

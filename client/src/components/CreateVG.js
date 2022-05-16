@@ -71,7 +71,8 @@ const handleChange=(e)=>{
   
   return newState
   })
-  if(Object.keys(error).length === 0){
+  
+  if(Object.keys(error).length){
   setButton(false)}
 }
 const handleSelectP=(e)=>{
@@ -90,7 +91,9 @@ const handleSelect=(e)=>{
   setInput({
     ...input,
     genres:[...input.genres,e.target.value]
-  })}
+  })}else{
+    console.log('genero ya agregado!')
+  }
 }
 const handleDeleteGenre=(e)=>{
   setInput({
@@ -108,6 +111,10 @@ const handleDeletePlat=(e)=>{
 
 const handleSubmit=(e)=>{
   e.preventDefault()
+  if(!input.name||!input.rating||!input.description||!input.platforms || !input.genres){
+    return alert('incomplete fields.')
+  }
+  input.name=input.name.charAt().toUpperCase()+input.name.slice(1)
   dispatch(postVideoGame(input))
   setInput({
     name:'',
@@ -219,7 +226,7 @@ const handleSubmit=(e)=>{
           </div>
 
             <div className='submit1'>
-             <button type='submit' disabled={button} className='submit' >Create Videogame</button>
+             <button type='submit' disabled={button}  >Create Videogame</button>
             </div>
           
       </form>

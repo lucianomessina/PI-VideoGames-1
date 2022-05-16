@@ -65,9 +65,10 @@ const getDBvideogames = async ()=>{
 const getApiVideoGames = async () => {
     try {
       const games = [];
-      let url = `https://api.rawg.io/api/games?key=6ecdb191f18d44108c899e1795859126`;
-      for (let i = 1; i < 15; i++) {
+      let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
+      for (let i = 1; i < 10; i++) {
         let pages = await axios.get(url);
+        
         pages.data?.results.forEach((e) => {
           games.push({
             id: e.id,
@@ -104,5 +105,6 @@ const getApiVideoGames = async () => {
     module.exports={
   getApiVideoGames,
   getAllVideoGames,
-  getDBvideogames,getOneVideoGame
+  getDBvideogames,
+  getOneVideoGame
 };
