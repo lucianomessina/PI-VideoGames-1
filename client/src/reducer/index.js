@@ -84,7 +84,6 @@ export default function rootReducer(state=initialState,action){
                     return 0
                 })
                 orderedVg=action.payload==='men'?orderedVg:orderedVg.reverse()
-                // console.log(orderedVg)
                 return{
                     ...state,
                     videogames:orderedVg

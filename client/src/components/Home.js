@@ -52,6 +52,7 @@ function Home() {
   const handleReload = () => {
     window.location.reload();
   };
+
   function handleFilterByGenre(e){
     e.preventDefault()
     dispatch(filterByGenre(e.target.value))
@@ -63,8 +64,9 @@ function Home() {
     dispatch(orderAscDesc(e.target.value))
     setCurrentPage(1)
     setOrder(e.target.value)
-
   }
+
+  
   function handleOrderRating(e){
     e.preventDefault()
     dispatch(orderRating(e.target.value))
@@ -135,7 +137,6 @@ function Home() {
        allVideogames={allVideoGames.length}
        paginado={paginado}
        />}
-
        </div>
        <div className='container'>
     {loading?(

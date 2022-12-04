@@ -123,10 +123,10 @@ const getVideoGameById=async(req,res)=>{
     try {
         console.log('entro a la funcion')
         const {id}=req.params;
-        var game;
+        let game;
         // <=4 means it's from the API
         if(id.length<5){
-            game=await  getOneVideoGame(id);
+            game = await getOneVideoGame(id);
             // console.log(getOneVideoGame(id))
             // console.log(game)
             game? 

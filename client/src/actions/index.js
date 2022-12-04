@@ -61,7 +61,6 @@ export function DeleteVideoGame(payload){
      return async(dispatch)=>{
          try {
              const json=await axios.get('http://localhost:3001/videogames?name='+name)
-            //  console.log(json.data)
              return dispatch({
                  type:'get_by_name',
                  payload:json.data

@@ -241,6 +241,8 @@ const handleSubmit=(e)=>{
                 })}
             </div>
             <br/>
+
+            
             <div className='boxes-1'>
               <span>Platforms selected:</span>
 
